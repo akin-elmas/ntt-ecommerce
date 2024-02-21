@@ -1,5 +1,5 @@
 const config = {
-  PRODUCT_API_URL: process.env.REACT_APP_HOST_BACKEND as string,
+  PRODUCT_API_URL: import.meta.env.VITE_API_URL,
 };
 
 export default config;

@@ -1,4 +1,5 @@
 export type Product = {
+  favStatus: boolean;
   id: number;
   name: string;
   description: string;

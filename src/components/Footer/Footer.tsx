@@ -9,8 +9,6 @@ const FooterWrapper = styled(Box)`
   flex-direction: column;
   background-color: #0059bc;
   width: 100%;
-  position: absolute;
-  bottom: 0;
 `;
 
 const FooterContainer = styled(Box)`
