@@ -8,7 +8,7 @@ const Wrapper = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   gap: 2.181875rem;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   justify-content: space-around;
   ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
     display: none;

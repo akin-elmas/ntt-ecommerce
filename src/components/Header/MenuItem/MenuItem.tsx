@@ -15,6 +15,7 @@ const MenuItemButton = styled(Button)`
   width: 78px;
   height: 28px;
   padding: 0;
+  text-transform: none;
   color: #6a6d70;
   position: relative;
   &:hover {

@@ -20,7 +20,7 @@ const Container = styled(Box)`
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 2rem 0;
+    padding: 1.6rem 0;
     ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
       flex-direction: column;
       padding: 1.5rem 0;
