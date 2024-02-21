@@ -1,126 +1,102 @@
-import { ThemeProvider, createTheme, ThemeOptions } from "@mui/material/styles";
 import React, { ReactNode } from "react";
+import { ThemeOptions, ThemeProvider, createTheme } from "@mui/material/styles";
 
 type Props = {
   children: ReactNode;
 };
 
+declare module "@mui/material/styles" {
+  // index signature typegradients
+
+  interface TypeGradient {
+    [key: string]: string;
+  }
+
+  interface TypeColor {
+    Darkest?: string;
+    White?: string;
+  }
+
+  interface PaletteOptions {
+    Ink: TypeColor;
+    Sky: TypeColor;
+    Red: TypeColor;
+  }
+
+  interface TypeBackground {
+    opposite: string;
+  }
+}
+
 export const AppThemeProvider: React.FC<Props> = ({ children }) => {
-  const theme = createTheme(
-    {
-      typography: {
-        fontFamily: "Roboto",
-        fontSize: 16,
-        fontWeightLight: 300,
-        fontWeightRegular: 400,
-        fontWeightMedium: 500,
-        fontWeightBold: 600,
-        h1: {
-          fontSize: "2rem",
-          fontWeight: 600,
-        },
-        h2: {
-          fontSize: "1.75rem",
-          fontWeight: 600,
-        },
-        h3: {
-          fontSize: "1.5rem",
-          fontWeight: 600,
-        },
-        h4: {
-          fontSize: "1.25rem",
-          fontWeight: 600,
-        },
-        h5: {
-          fontSize: "1.125rem",
-          fontWeight: 600,
-        },
-        h6: {
-          fontSize: "1rem",
-          fontWeight: 600,
-        },
+  const theme = createTheme({
+    typography: {
+      fontFamily: "Roboto",
+      fontSize: 16,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+      fontWeightBold: 600,
+      h1: {
+        fontSize: "2rem",
+        fontWeight: 600,
       },
-      breakpoints: {
-        values: {
-          xs: 0,
-          sm: 480,
-          md: 768,
-          lg: 1280,
-          xl: 1440,
-        },
+      h2: {
+        fontSize: "1.75rem",
+        fontWeight: 600,
       },
-      palette: {
-        primary: {
-          main: "#0059BC",
-        },
-        background: {
-          default: "#FFFFFF",
-        },
+      h3: {
+        fontSize: "1.5rem",
+        fontWeight: 600,
+      },
+      h4: {
+        fontSize: "1.25rem",
+        fontWeight: 600,
+      },
+      h5: {
+        fontSize: "1.125rem",
+        fontWeight: 600,
+      },
+      h6: {
+        fontSize: "1rem",
+        fontWeight: 600,
       },
     },
-    {
-      header: {
-        linkColor: "#6A6D70",
-        background: "#FFFFFF",
-        border: {
-          color: "#89919A",
-        },
-        moreButton: {
-          background: "#F4F5F6",
-        },
-        searchBar: {
-          color: "#74777A",
-        },
-        selectBox: {
-          color: "#32363a",
-          background: "#f4f5f6",
-          border: "#0059bc",
-          icon: "#000000",
-          dropdown: {
-            background: "#00254f",
-            hoverBackground: "#0059bc",
-            color: "#ffffff",
-            selectedBackground: "#e6eef8",
-          },
-        },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 480,
+        md: 768,
+        lg: 1280,
+        xl: 1440,
       },
-      main: {
-        page: {
-          titleColor: "#000000",
-        },
-        productCard: {
-          titleColor: "#00254F",
-          textBackground: "#E6EEF8",
-        },
-        moreButton: {
-          color: "#FFFFFF",
-        },
-        switchButton: {
-          border: "#0059BC",
-          color: {
-            default: "#ffffff",
-            second: "#0059bc",
-          },
-          background: {
-            default: "#0059bc",
-            second: "#ffffff",
-          },
-          hoverBackground: {
-            default: "#F6FAFD",
-            second: "#264d91",
-          },
-        },
+    },
+    palette: {
+      primary: {
+        main: "#0059BC",
       },
-      footer: {
-        color: "#FFFFFF",
-        background: "#0059BC",
-        signUpButton: {
-          color: "#FFFFFF",
-          background: "#00254f",
-        },
+      background: {
+        default: "#FFFFFF",
       },
-    } as ThemeOptions
-  );
+      Ink: {
+        Darkest: "#000000",
+        White: "#FFFFFF",
+      },
+      Sky: {
+        Darkest: "#0059BC",
+        White: "#00B4DB",
+      },
+      Red: {
+        Darkest: "#E60000",
+        White: "#FF0000",
+      },
+
+      grey: {
+        400: "#F4F5F6",
+        600: "#89919A",
+      },
+    },
+  } as ThemeOptions);
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
