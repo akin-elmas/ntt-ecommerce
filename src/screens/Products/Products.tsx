@@ -10,7 +10,9 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   fetchProducts,
   updateProductFavoriteStatus,
+  showMoreProducts,
 } from "../../features/productSlice";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 const Container = styled(Box)`
   width: 100%;
@@ -55,9 +57,22 @@ const ProductsWrapper = styled(Stack)`
   }
 `;
 
+const MoreProductsButton = styled(Button)`
+  width: 193px;
+  margin: 0 auto;
+  height: 56px;
+  background-color: #0059bc;
+  padding: 16px, 32px, 16px, 32px;
+  border-radius: 4px;
+  gap: 10px;
+  color: #fff;
+  &:hover {
+    background-color: #0059bc;
+  }
+`;
+
 export default function Products() {
   const [showJustFav, setShowJustFav] = useState<boolean>(false);
-
   const dispatch = useAppDispatch();
   const { product, favProductsCount, productShowNumber } = useAppSelector(
     (state) => state.product
@@ -131,6 +146,12 @@ export default function Products() {
           }
         )}
       </ProductsWrapper>
+
+      <MoreProductsButton
+        onClick={() => dispatch(showMoreProducts())}
+        endIcon={<ArrowRightAltIcon />}>
+        Daha Fazla
+      </MoreProductsButton>
     </Container>
   );
 }
